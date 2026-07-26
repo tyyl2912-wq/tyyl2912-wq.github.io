@@ -1,0 +1,284 @@
+body {
+    font-family: sans-serif;
+    background-color: black;
+    color: aliceblue;
+}
+
+
+.glass{
+	/*padding: 1.2rem;*/
+
+    background: linear-gradient(
+      135deg,
+      rgba(255,255,255,0.18),
+      rgba(255,255,255,0.08)
+    );
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    border-radius: 24px;
+
+    box-shadow:0 8px 40px rgba(0,0,0,0.25);
+}
+
+nav{
+    display:flex;
+	flex-wrap:wrap;
+	align-items:center;
+    justify-content: center;
+	gap:5%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Keeps it above other content */
+}
+
+button{
+    color: aliceblue;
+    background-color: black;
+    border-radius: 24px;
+}
+
+section{
+    display:none;
+}
+
+
+.homePage{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80vh auto 30vh;
+}
+
+.homePageContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+    border:1px solid white;
+}
+
+
+.hPG_header{
+    font-size: 1.9rem;
+}
+
+.hPG_footer{
+    border:1px solid white;
+}
+
+a{
+    color: aliceblue;
+}
+
+
+.red_blood_cells_img{
+    width: 100%;
+    height: auto;
+}
+.white_blood_cells_img{
+    width: 100%;
+    height: auto;
+}
+.platelets_img{
+    width: 100%;
+    height: auto;
+}
+.macrophage_img{
+    width: 100%;
+    height: auto;
+}
+.T_cell_img{
+    width: 100%;
+    height: auto;
+}
+
+
+.subtopic1Container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 70vh auto 30vh;
+}
+
+.top{
+    background-image: url("images/cell.webp");
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+}
+
+.content{
+    background-color: black;
+
+    display: grid;
+    grid-template-rows: 1fr,1fr,1fr,1fr,1fr,1fr;   
+
+    position: relative;
+}
+
+
+.panel1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+    padding:5px;
+
+    border:1px solid white;
+}
+
+.panel{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+
+    border:1px solid white;
+}
+
+.panel-image img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.panel-text{
+    text-align: center;
+}
+
+
+.footer1{
+    /*display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #333;
+    color: white;
+    font-size: 2rem;*/
+    background-color: black;
+}
+
+
+.subtopic2Container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 70vh auto 60vh;
+}
+
+
+.content2{
+    background-color: black;
+
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);   
+}
+
+
+.footer2{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+
+    border: 1px solid white;
+}
+
+
+.quiz{
+    border: 1px solid white;
+    width:100%;
+}
+
+.result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result img {
+    width: 300px;
+    height: 300px;
+}
+
+
+.button-row{
+    padding-top: 20px;
+}
+
+
+.submit_button{
+    background-color: blue;
+    font-size: 18px;
+}
+.reset_button{
+    background-color: white;
+    color:black;
+    font-size: 18px;
+}
+
+
+.subtopic3container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 70vh auto auto;
+}
+
+
+.footer3{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+
+    border: 1px solid white;
+}
+
+
+#game{
+    width:500px;
+    height:600px;
+    position:relative;
+    overflow:hidden;
+    background:lightblue;
+}
+
+
+
+.falling{
+    position:absolute;
+    width:70px;
+    height:70px;
+}
+
+@media(max-width: 800px){
+    .panel {
+        display:flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .panel-image {
+        order: 1;
+    }
+
+    .panel-text {
+        order: 2;
+    }
+
+    .panel img {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+    }
+
+}
