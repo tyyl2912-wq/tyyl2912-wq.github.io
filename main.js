@@ -52,7 +52,10 @@ document.getElementById("result").style.display = "none";
 const quizReset = document.getElementById("reset_button");
 quizReset.addEventListener("click",function(){
 
-    document.getElementById("quiz").reset();
+    document.querySelectorAll('#quiz input').forEach(function(input) {
+        input.checked = false;
+    });
+
     document.getElementById("quiz").style.display = "block";
     document.getElementById("result").style.display = "none";
 
@@ -147,16 +150,9 @@ var spawnTimer;
 
 var gameRunning = false;
 
-var goodImages = [
-    "images/waterdroplet.webp",
-    "images/oxygen.png"
-];
+var goodImages = ["images/waterdroplet.webp","images/oxygen.png"];
 
-
-var badImages = [
-    "images/poop.jpg",
-    "images/CO2.jpg"
-];
+var badImages = ["images/poop.jpg","images/CO2.jpg"];
 
 startButton.addEventListener("click", startGame);
 
@@ -171,8 +167,7 @@ function startGame()
     healthValue.textContent = "❤️❤️❤️";
 
     gameRunning = true;
-
-
+   
     spawnTimer = setInterval(function()
     {
         createFallingImage();
@@ -183,12 +178,11 @@ function startGame()
 
 function createFallingImage()
 {
-    //avoid creating images if game is not running
+    //dont create images if game is not running
     if(gameRunning == false)
     {
         return;
     }
-
     
     var image = document.createElement("img");
 
@@ -214,6 +208,7 @@ function createFallingImage()
     image.style.top = "0px";
 
     game.appendChild(image);
+    image.draggable = false; // prevent dragging of image
     image.active = true;
     image.isBad = isBad;
 
