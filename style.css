@@ -248,8 +248,11 @@ a{
     width:500px;
     height:600px;
     position:relative;
-    overflow:hidden;
     background:lightblue;
+
+    /*make touch easier prevent scroll*/
+    touch-action: none;
+    overflow: hidden;
 }
 
 
