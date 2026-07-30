@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <script src="https://kit.fontawesome.com/c31bbd6ae7.js" crossorigin="anonymous"></script>
     <title>Starter HTML JS CSS</title>
     <link rel="stylesheet" href="style.css">
@@ -16,13 +18,15 @@
         <button id = "subtopic1Button">Types Of Cells</button>
         <button id = "subtopic2Button">Cell Structure</button>
         <button id = "subtopic3Button">Cell Functions</button>
+        <button id="btnFS">FullScreen</button>
+        <button id="btnWS">Exit Full Screen</button>
     </nav>
 
     <main>
         
         <section id = "homePage" class = "homePage">
             <div class = "top">
-                <h2>Cells</h2>
+                <h1>Cells</h1>
             </div>
 
             <div class = "homePageContent">
@@ -34,12 +38,19 @@
             </div>
 
             <div class = "hPG_footer">
-                <h2>Resources:</h2>
-                <a href = "https://pixabay.com/" target = "_blank">https://pixabay.com/</a>;
-                <br>
-                <a href = "https://fontawesome.com/" target = "_blank">https://fontawesome.com/</a>;
-                <br>
-                <a href = "https://www.w3schools.com/css/default.asp" target = "_blank">https://www.w3schools.com/css/default.asp</a>;
+                <div class = "resources">
+                    <h2>Resources:</h2>
+                    <a href = "https://pixabay.com/" target = "_blank">https://pixabay.com/</a>;
+                    <br>
+                    <a href = "https://fontawesome.com/" target = "_blank">https://fontawesome.com/</a>;
+                    <br>
+                    <a href = "https://www.w3schools.com/css/default.asp" target = "_blank">https://www.w3schools.com/css/default.asp</a>;
+                </div>
+                
+                <div class = "mobile_qr">
+                    <h2>Mobile Version:</h2>
+                    <img src = "images/qrcode_tyyl2912-wq.github.io.png" alt = "qr_code" title = "qr_code">
+                </div>
             </div>
         </section>
 
@@ -199,7 +210,7 @@
             <div class = "footer2">
                 <h2>Test your knowledge:</h2>
 
-                <span class = "quiz" id = "quiz">
+                <div class = "quiz" id = "quiz">
                     <p>Q1: Which of the following does not contain a nucleus?</p>
                     <input type="radio" name="q1" value="rbc"> Red Blood Cell
                     <input type="radio" name="q1" value="wbc"> White Blood Cell
@@ -224,10 +235,10 @@
                     <input type="radio" name="q5" value="wbc"> White Blood Cell
                     <input type="radio" name="q5" value="lysosome"> Lysosome
                     <input type="radio" name="q5" value="golgi"> Golgi Body
-                </span>
+                </div>
 
                 <div id = "result" class = "result">
-                    <img id = "resultImg" src = "" alt = "Result">
+                    <img id="resultImg" src="images/tick.png" alt="Quiz Result">
                 </div>
 
                 <div class = "button-row">
