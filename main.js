@@ -14,7 +14,7 @@ homeButton.addEventListener("click",function(){
     hideSections();
     document.getElementById("homePage").style.display = "grid";
 
-})
+});
 
 
 //nav button 1
@@ -24,7 +24,7 @@ subtopic1Button.addEventListener("click",function(){
     hideSections();
     document.getElementById("subtopic1").style.display = "grid";
 
-})
+});
 
 //nav button 2
 const subtopic2Button = document.getElementById("subtopic2Button");
@@ -33,7 +33,7 @@ subtopic2Button.addEventListener("click",function(){
     hideSections();
     document.getElementById("subtopic2").style.display = "grid";
 
-})
+});
 
 //nav button3
 const subtopic3Button = document.getElementById("subtopic3Button");
@@ -42,7 +42,7 @@ subtopic3Button.addEventListener("click",function(){
     hideSections();
     document.getElementById("subtopic3").style.display = "grid";
 
-})
+});
 
 //hide result page
 document.getElementById("result").style.display = "none";
@@ -59,7 +59,7 @@ quizReset.addEventListener("click",function(){
     document.getElementById("quiz").style.display = "block";
     document.getElementById("result").style.display = "none";
 
-})
+});
 
 
 //submit quiz
@@ -131,7 +131,7 @@ submitButton.addEventListener("click",function(){
 
 
     alert("You scored " + score + "/5");
-})
+});
 
 
 //GAME
@@ -143,6 +143,8 @@ var startButton = document.getElementById("startButton");
 
 var scoreValue = document.getElementById("scoreValue");
 var healthValue = document.getElementById("healthValue");
+
+const resultImg = document.getElementById("resultImg");
 
 var score = 0;
 var health = 3;
@@ -322,12 +324,10 @@ function gameOver()
     clearInterval(spawnTimer);
 
 
-    game.innerHTML = 
-    `
-    <h2>Game Over</h2>
-    <p>Score: ${score}</p>
-    <button id="restartButton">Restart</button>
-    `;
+    game.innerHTML =
+    "<h2>Game Over</h2>" +
+    "<p>Score: " + score + "</p>" +
+    '<button id="restartButton">Restart</button>';
 
 
     var restartButton = document.getElementById("restartButton");
@@ -342,4 +342,35 @@ function restartGame()
     game.innerHTML = "";
 
     startGame();
+}
+
+//full screen
+const btnFS=document.querySelector("#btnFS");
+const btnWS=document.querySelector("#btnWS");
+
+btnFS.addEventListener("click",enterFullscreen);
+btnWS.addEventListener("click",exitFullscreen);
+
+function enterFullscreen() { //must be called by user generated event
+    if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+    } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+        document.documentElement.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+        document.documentElement.webkitRequestFullscreen();
+    } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+        document.documentElement.msRequestFullscreen();
+    }
+}
+
+function exitFullscreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) { // Firefox
+        document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) { // Chrome, Safari, and Opera
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { // IE/Edge
+        document.msExitFullscreen();
+    }
 }
