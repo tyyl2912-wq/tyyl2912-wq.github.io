@@ -125,7 +125,6 @@ a{
     background-color: black;
 
     display: grid;
-    grid-template-rows: 30vh 1fr 1fr 1fr 1fr 1fr;
 
     position: relative;
 }
