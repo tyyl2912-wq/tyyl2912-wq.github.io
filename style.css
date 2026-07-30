@@ -125,7 +125,7 @@ a{
     background-color: black;
 
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 30vh 1fr 1fr 1fr 1fr 1fr;
 
     position: relative;
 }
@@ -137,8 +137,6 @@ a{
     align-items: center;
     flex-direction: column;
     text-align: center;
-
-    padding:5px;
 
     border:1px solid white;
 }
@@ -165,13 +163,6 @@ a{
 
 
 .footer1{
-    /*display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background-color: #333;
-    color: white;
-    font-size: 2rem;*/
     background-color: black;
 }
 
