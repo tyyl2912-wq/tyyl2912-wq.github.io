@@ -138,25 +138,58 @@ submitButton.addEventListener("click",function(){
 const wrongAudio = new Audio("audio/wrong_sound.mp3");
 const correctAudio = new Audio("audio/correct_sound.mp3");
 
-var game = document.getElementById("game");
-var startButton = document.getElementById("startButton");
+let game = document.getElementById("game");
+let startButton = document.getElementById("startButton");
 
-var scoreValue = document.getElementById("scoreValue");
-var healthValue = document.getElementById("healthValue");
+let scoreValue = document.getElementById("scoreValue");
+let healthValue = document.getElementById("healthValue");
 
 const resultImg = document.getElementById("resultImg");
 
-var score = 0;
-var health = 3;
-var spawnTimer;
+let score = 0;
+let health = 3;
+let spawnTimer;
 
-var gameRunning = false;
+let gameRunning = false;
 
-var goodImages = ["images/waterdroplet.webp","images/oxygen.png"];
+let goodImages = ["images/waterdroplet.webp","images/oxygen.png"];
 
-var badImages = ["images/poop.jpg","images/CO2.jpg"];
+let badImages = ["images/poop.jpg","images/CO2.jpg"];
 
 startButton.addEventListener("click", startGame);
+
+game.addEventListener("click", function(event)
+{
+    let image = event.target;
+
+    // Ignore clicks that aren't on falling images
+    if (!image.classList.contains("falling"))
+    {
+        return;
+    }
+
+    if (image.active === false)
+    {
+        return;
+    }
+
+    image.active = false;
+
+    if (image.isBad)
+    {
+        score++;
+        scoreValue.textContent = score;
+        correctAudio.play();
+    }
+    else
+    {
+        wrongAudio.play();
+        loseHealth();
+    }
+
+    image.remove();
+});
+
 
 function startGame()
 {
@@ -186,25 +219,25 @@ function createFallingImage()
         return;
     }
     
-    var image = document.createElement("img");
+    let image = document.createElement("img");
 
-    var isBad = Math.random() < 0.5;
+    let isBad = Math.random() < 0.5;
     if(isBad)
     {
-        var randomBad = Math.floor(Math.random() * badImages.length);
+        let randomBad = Math.floor(Math.random() * badImages.length);
 
         image.src = badImages[randomBad];
     }
     else
     {
-        var randomGood = Math.floor(Math.random() * goodImages.length);
+        let randomGood = Math.floor(Math.random() * goodImages.length);
 
         image.src = goodImages[randomGood];
     }
 
-    image.className = "falling";
+    image.classList.add("falling");
 
-    var randomPosition = Math.random() * (game.clientWidth - 60);
+    let randomPosition = Math.random() * (game.clientWidth - 60);
     image.style.left = randomPosition + "px";
     
     image.style.top = "0px";
@@ -215,46 +248,15 @@ function createFallingImage()
     image.isBad = isBad;
 
 
-    // when image is clicked
-    image.addEventListener("click", function()
-{
-    if(image.active == false)
-    {
-        return;
-    }
-
-
-    image.active = false;
-
-
-    if(image.isBad)
-    {
-        score = score + 1;
-        scoreValue.textContent = score;
-
-        correctAudio.play();
-    }
-
-    else
-    {
-        wrongAudio.play();
-        loseHealth();
-    }
-
-
-    image.remove();
-
-    });
-
     moveImage(image);
 }
 
 //make it fall
 function moveImage(image)
 {
-    var position = 0;
+    let position = 0;
 
-    var falling = setInterval(function()
+    let falling = setInterval(function()
     {
         position = position + 5;
 
@@ -278,7 +280,7 @@ function moveImage(image)
 
             }
 
-
+            
             image.remove();
 
         }
@@ -330,7 +332,7 @@ function gameOver()
     '<button id="restartButton">Restart</button>';
 
 
-    var restartButton = document.getElementById("restartButton");
+    let restartButton = document.getElementById("restartButton");
 
 
     restartButton.addEventListener("click", restartGame);
