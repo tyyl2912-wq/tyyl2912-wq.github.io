@@ -69,21 +69,21 @@ submitButton.addEventListener("click",function(){
 
     // Q1 correct answer: Red Blood Cell
     let q1 = document.querySelector('input[name="q1"]:checked');
-    if (q1 && q1.value === "rbc") {
+    if (q1 && q1.value == "rbc") {
         score++;
     }
 
 
     // Q2 correct answer: Mitochondria
     let q2 = document.querySelector('input[name="q2"]:checked');
-    if (q2 && q2.value === "mitochondria") {
+    if (q2 && q2.value == "mitochondria") {
         score++;
     }
 
 
     // Q3 correct answer: Endoplasmic reticulum
     let q3 = document.querySelector('input[name="q3"]:checked');
-    if (q3 && q3.value === "er") {
+    if (q3 && q3.value == "er") {
         score++;
     }
 
@@ -100,7 +100,7 @@ submitButton.addEventListener("click",function(){
     let correctQ4 = ["tcell", "wbc"];
 
     if (
-        q4Answers.length === correctQ4.length &&
+        q4Answers.length == correctQ4.length &&
         correctQ4.every(function(answer) {
             return q4Answers.includes(answer);
         })
@@ -111,7 +111,7 @@ submitButton.addEventListener("click",function(){
 
     // Q5 correct answer: White Blood Cell
     let q5 = document.querySelector('input[name="q5"]:checked');
-    if (q5 && q5.value === "wbc") {
+    if (q5 && q5.value == "wbc") {
         score++;
     }
 
@@ -123,7 +123,7 @@ submitButton.addEventListener("click",function(){
     document.getElementById("result").style.display = "block";
 
 
-    if (score === 5) {
+    if (score == 5) {
         resultImg.src = "images/tick.png";
     } else {
         resultImg.src = "images/cross.png";
@@ -168,7 +168,7 @@ game.addEventListener("click", function(event)
         return;
     }
 
-    if (image.active === false)
+    if (image.active == false)
     {
         return;
     }
